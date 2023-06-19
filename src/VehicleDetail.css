@@ -1,0 +1,40 @@
+.vehicle-detail-page {
+  background-color: black !important;
+  color: white !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button {
+  color: white !important;
+  position: absolute;
+  top: 40px;
+  left: 10px;
+}
+
+.vehicle-info-title {
+  margin-top: -300px !important;
+  color: white !important;
+}
+
+.vehicle-detail-table {
+  width: 50% !important;
+  margin-top: 20px !important;
+  border: 1px solid white !important;
+  background-color: #282c34 !important;
+}
+
+.table-cell {
+  border-right: 1px solid white !important;
+  color: white !important;
+}
+
+.table-divider {
+  height: 1px;
+  background-color: white;
+}
+  
+  
