@@ -77,11 +77,11 @@ function PeopleList() {
     return `${emailName}@email.com`;
   }
 
-  const handlePersonClick = async (index) => {
-    let person = { ...people[index] };
-    person.phoneNr = generateRandomPhoneNumber();
-    person.email = generateEmail(person.name);
-    setSelectedPerson(person);
+  const handlePersonClick = async (person) => {
+    let selectedPerson = { ...person };
+    selectedPerson.phoneNr = generateRandomPhoneNumber();
+    selectedPerson.email = generateEmail(selectedPerson.name);
+    setSelectedPerson(selectedPerson);
     
     const vehicles = await axios.get(`https://swapi.dev/api/vehicles/`);
     
@@ -95,7 +95,7 @@ function PeopleList() {
     setSelectedPersonVehicles(randomVehicles);
   
     setDialogOpen(true);
-  };
+};
 
   const handleDialogClose = () => {
     setDialogOpen(false);
@@ -136,7 +136,11 @@ function PeopleList() {
           <Grid item xs={6} sm={3} md={2} lg={1.5} key={person.name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <Avatar style={{ background: 'black', border: '1px solid white' }}>{person.name[0]}</Avatar>
-            <WhiteTextTypography variant="h6" style={{ cursor: 'pointer', textAlign: 'center' }} onClick={() => handlePersonClick(index)}>
+            <WhiteTextTypography 
+              variant="h6" 
+              style={{ cursor: 'pointer', textAlign: 'center' }} 
+              onClick={() => handlePersonClick(person)}
+            >
               {person.name}
             </WhiteTextTypography>
           </div>
